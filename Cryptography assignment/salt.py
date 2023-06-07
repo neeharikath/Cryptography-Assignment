@@ -7,7 +7,6 @@ def generate_salt(length=8):
     salt_characters = string.ascii_letters + string.digits + string.punctuation
     salt = ''.join(random.choice(salt_characters) for _ in range(length))
     return salt
-
 # Function to hash a password with salt
 def hash_password(password, salt):
     salted_password = password + salt
@@ -15,7 +14,6 @@ def hash_password(password, salt):
     hash_object.update(salted_password.encode('utf-8'))
     hashed_password = hash_object.hexdigest()
     return hashed_password
-
 # Function to check if a password matches the hashed password
 def check_password(password, hashed_password, salt):
     salted_password = password + salt
@@ -23,7 +21,6 @@ def check_password(password, hashed_password, salt):
     hash_object.update(salted_password.encode('utf-8'))
     hashed_input_password = hash_object.hexdigest()
     return hashed_password == hashed_input_password
-
 # Generate a password file based on user input
 password_file = {}
 num_users = int(input("Enter the number of users: "))
